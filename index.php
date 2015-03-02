@@ -11,10 +11,10 @@
         <title>My Phone Gap App</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
-        <link rel="stylesheet" href="assets/css/library/jquery.mobile-1.4.4.min.css" />
-        <script src="assets/js/library/jquery-2.1.1.min.js"></script>
-        <script src="assets/js/library/jquery.mobile-1.4.4.min.js"></script>
-        <script src="assets/js/app.action.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/app.action.js"></script>
     </head>
     <body>
         <div data-role="page" id="app-calculator">
