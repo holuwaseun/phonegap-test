@@ -14,7 +14,49 @@
         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script src="js/app.action.js"></script>
+        <script>
+            $(document).on('ready',function(){
+                $('#app-calculator-form').on('submit',function(e){
+                    e.preventDefault();
+                    var error = 0;
+                    $('#app-calculator-form :input').map(function(){
+                        if(!$(this).val()){
+                            error++;
+                        }
+                    });
+                    if(error > 0){
+                        alert('Some fields are empty');
+                        return false;
+                    }
+                    var first_number = $('#number_one').val();
+                    var second_number = $('#number_two').val();
+                    var operation = $('.operation:checked').val();
+                    var answer;
+                    
+                    switch(operation){
+                        case 'subtract':
+                            answer = parseFloat(first_number) - parseFloat(second_number);
+                            break;
+                        case 'multiply':
+                            answer = parseFloat(first_number) * parseFloat(second_number);
+                            break;
+                        case 'divide':
+                            if(parseFloat(second_number) === 0){
+                                alert('Division by zero not possible');
+                                return false;
+                            }
+                            answer = parseFloat(first_number) / parseFloat(second_number);
+                            break;
+                        case 'add':
+                        case 'default':
+                            answer = parseFloat(first_number) + parseFloat(second_number);
+                            break;
+                    }
+                    $('#app-response div.ui-content p.reponse-content').html('').html(parseFloat(answer));
+                    window.location.href = '#app-response';
+                });
+            });
+        </script>
     </head>
     <body>
         <div data-role="page" id="app-calculator">
